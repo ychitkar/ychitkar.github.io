@@ -5,12 +5,8 @@ function switchTab(tab) {
 
     switch (tab) {
         case 'ex':
-            ns.style.display = 'none';
-            nst.className = 'tab ns-tab';
             ex.style.display = 'block';
             ext.className = 'tab ex-tab active';
-            ac.style.display = 'none';
-            act.className = 'tab ac-tab';
             break;
     }
 }
