@@ -44,6 +44,7 @@
             $("#bio").load("bio.html");
             $("#publist").load("publications.html");
             $(".experience").load("experience.html");
+            $(".awards").load("awards.html");
         });
     </script> 
 
@@ -140,10 +141,12 @@
 
             <h2 style="padding-top:1rem;"></h2>
             <div class="tabs" id="tabs">
-                <span class="tab ex-tab" onclick="switchTab('ex')">Experience</span>
+                <span class="tab ex-tab active" onclick="switchTab('ex')">Experience</span>
+                <span class="tab aw-tab" onclick="switchTab('aw')">Awards</span>
             </div>
 
             <section class="experience"></section>
+            <section class="awards"></section>
 
         </section>
 
@@ -153,17 +156,28 @@
 
     <!-- TAB CHANGES -->
     <script>
-        var ex = document.querySelector('.experience');
+        var aw = document.querySelector('.award'), 
+        ex = document.querySelector('.experience');
 
-        ex.style.display = 'none';
+        aw.style.display = 'none';
 
         function switchTab(tab) {
-            var ex = document.querySelector('.experience');
+            var aw = document.querySelector('.award'), 
+            ex = document.querySelector('.experience');
 
-            var ext = document.querySelector('.ex-tab');
+            var awt = document.querySelector('.aw-tab'), 
+            ext = document.querySelector('.ex-tab');
 
             switch (tab) {
+                case 'aw':
+                    ex.style.display = 'none';
+                    ext.className = 'tab ex-tab';
+                    aw.style.display = 'block';
+                    awt.className = 'tab aw-tab active';
+                    break;
                 case 'ex':
+                    aw.style.display = 'none';
+                    awt.className = 'tab aw-tab';
                     ex.style.display = 'block';
                     ext.className = 'tab ex-tab active';
                     break;
