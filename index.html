@@ -45,6 +45,7 @@
             $("#publist").load("publications.html");
             $(".experience").load("experience.html");
             $(".award").load("awards.html");
+            $(".courses").load("courses.html");
         });
     </script> 
 
@@ -143,10 +144,12 @@
             <div class="tabs" id="tabs">
                 <span class="tab ex-tab active" onclick="switchTab('ex')">Experience</span>
                 <span class="tab aw-tab" onclick="switchTab('aw')">Awards</span>
+                <span class="tab co-tab" onclick="switchTab('co')">Courses</span>
             </div>
 
             <section class="experience"></section>
             <section class="award"></section>
+            <section class="course"></section>
 
         </section>
 
@@ -156,29 +159,45 @@
 
     <!-- TAB CHANGES -->
     <script>
-        var aw = document.querySelector('.award'); 
+        var aw = document.querySelector('.award'),
+            co = document.querySelector('.course'); 
 
         aw.style.display = 'none';
+        co.style.display = 'none';
 
         function switchTab(tab) {
             var aw = document.querySelector('.award'), 
-            ex = document.querySelector('.experience');
+            ex = document.querySelector('.experience'),
+            co = document.querySelector('.course');
 
             var awt = document.querySelector('.aw-tab'), 
-            ext = document.querySelector('.ex-tab');
+            ext = document.querySelector('.ex-tab'),
+            cot = document,querySelector('.co-tab');
 
             switch (tab) {
                 case 'aw':
                     ex.style.display = 'none';
                     ext.className = 'tab ex-tab';
+                    co.style.display = 'none';
+                    cot.className = 'tab co-tab';
                     aw.style.display = 'block';
                     awt.className = 'tab aw-tab active';
                     break;
                 case 'ex':
                     aw.style.display = 'none';
                     awt.className = 'tab aw-tab';
+                    co.style.display = 'none';
+                    cot.className = 'tab co-tab';
                     ex.style.display = 'block';
                     ext.className = 'tab ex-tab active';
+                    break;
+                case 'co':
+                    ex.style.display = 'none';
+                    ext.className = 'tab ex-tab';
+                    aw.style.display = 'none';
+                    awt.className = 'tab aw-tab';
+                    co.style.display = 'block';
+                    cot.className = 'tab co-tab active';
                     break;
             }
         }
